@@ -1,0 +1,389 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image-container {
+    position: relative; /* Allow positioning of overlay */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.main-image {
+    max-width: 100%; /* Makes the image responsive */
+    height: auto;
+    border-radius: 50%; /* Makes the image circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow effect */
+    opacity: 0.8; /* Reduce opacity */
+    display: block; /* Ensures block-level rendering */
+    margin: 0 auto; /* Centers the image */
+}
+
+
+/* Overlay design */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    border-radius: 8px; /* Match rounded corners of the image */
+}
+
+
+
+/* Navbar styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px; /* Increase padding for a larger navbar */
+    background-color: #800000;
+    color: white;
+}
+
+.logo img {
+    height: 100px; 
+    width: 100px; 
+    border-radius: 50%;
+    margin-right: 20px; 
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+nav .logo {
+    font-size: 28px; /* Increase font size of logo */
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 70px; /* Increase gap for spacing between links */
+}
+
+/* Combined underline slide and grow effect for links */
+.nav-links li a, .footer-links ul li a, .footer-social a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px; /* Increase font size of nav links */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and grow transition */
+}
+
+.nav-links li a::after, .footer-links ul li a::after, .footer-social a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ff6600;
+    transition: width 0.3s ease; /* Smooth underline transition */
+}
+
+.nav-links li a:hover, .footer-links ul li a:hover, .footer-social a:hover {
+    color: #ff6600; /* Color change on hover */
+    transform: scale(1.1); /* Grow effect */
+}
+
+.nav-links li a:hover::after, .footer-links ul li a:hover::after, .footer-social a:hover::after {
+    width: 100%; /* Underline expands on hover */
+}
+
+.login-button {
+    padding: 10px 20px; 
+    background-color: #ff6600;
+    color: white;
+    font: normal;
+    text-decoration: none; /* Ensure no underline on the button */
+    border-radius: 4px;
+    font-size: 18px; 
+    transition: background-color 0.3s, transform 0.3s; /* Add transform to transition */
+}
+
+.login-button:hover {
+    background-color: #e65c00; /* Change background color on hover */
+    color: white;
+    transform: scale(1.1); /* Grow effect */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.team-members {
+    display: flex;                   /* Use flexbox for layout */
+    justify-content: center;         /* Center align members */
+    flex-wrap: wrap;                /* Allow wrapping to next line if needed */
+    padding: 20px 0;                /* Add padding for spacing */
+    background-color: #800000;      /* Match footer background */
+    color: white;                   /* White text for contrast */
+}
+
+.team-member {
+    text-align: center;             /* Center text below each image */
+    margin: 10px;                   /* Add margin around team members */
+}
+
+.team-member img {
+    width: 100px;                   /* Set a fixed width for images */
+    height: 100px;                  /* Set a fixed height for images */
+    border-radius: 50%;             /* Make images circular */
+    object-fit: cover;              /* Maintain aspect ratio and cover */
+    border: 2px solid #ff6600;      /* Optional: border around images */
+}
+
+.team-member h3 {
+    margin-top: 10px;               /* Space between image and name */
+    font-size: 18px;                /* Adjust font size */
+}
+
+.team-member p {
+    font-size: 14px;                /* Adjust font size for roles */
+    color: #ffd1a3;                 /* Light color for roles */
+}
+
+/* Content section */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 48px;
+    color: #333;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
+}
+
+.modal-content {
+    background-color: #800000; /* Match the navbar background color */
+    color: white; /* White text for contrast */
+    margin: 10% auto; /* Center modal */
+    padding: 30px; /* Increase padding for space */
+    border-radius: 12px; /* Rounded corners */
+    width: 420px; /* Adjust width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    font-family: Arial, sans-serif; /* Match font */
+    margin-top: 5%;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff6600; /* Accent color for heading */
+    text-align: center;
+}
+
+.close {
+    color: #ff6600; /* Match button color */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ffd1a3;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #fff;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ff6600; /* Match button color */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px;
+    background-color: #ff6600; /* Primary button color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65c00; /* Darken on hover */
+    transform: scale(1.1);
+}
+
+p {
+    color: #fff;
+    margin: 15px 0;
+    text-align: center;
+}
+
+a {
+    color: #ffd1a3; /* Lighter accent color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}
+
+/* Footer styling */
+footer {
+    background-color: #800000;
+    color: white;
+    padding: 40px 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the footer content */
+    padding: 20px 0;
+}
+
+.footer-logo {
+    text-align: center; /* Center logo and description */
+    margin-bottom: 20px;
+}
+
+.footer-logo h2 {
+    color: #ff6600;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    color: #ddd;
+    max-width: 200px;
+}
+
+/* Footer links */
+.footer-links {
+    display: flex;                    /* Use flexbox for layout */
+    flex-direction: column;           /* Stack links vertically */
+    align-items: center;              /* Center the links */
+    margin: 20px 0;                  /* Add margin for spacing */
+}
+
+.footer-links h3 {
+    margin-bottom: 10px;              /* Space between heading and links */
+    color: #ffd1a3;
+}
+
+.footer-links ul {
+    display: flex;                    /* Use flexbox for the links */
+    list-style: none;                /* Remove bullet points */
+    padding: 0;                      /* Remove default padding */
+    justify-content: center;          /* Center align the link list */
+}
+
+.footer-links ul li {
+    margin: 0 15px;                  /* Add margin between links */
+}
+
+.footer-links ul li a {
+    color: #ffd1a3;                  /* Set link color */
+    text-decoration: none;            /* Remove underline */
+    font-size: 16px;                 /* Adjust font size for links */
+}
+
+.footer-links ul li a:hover {
+    color: #ff6600;                  /* Change color on hover */
+    text-decoration: underline;       /* Underline on hover */
+}
+
+/* Follow Us section */
+.footer-social {
+    display: flex;                    /* Use flexbox for layout */
+    flex-direction: row;              /* Align social links horizontally */
+    justify-content: center;          /* Center the social links */
+    align-items: center;              /* Center the social links */
+    margin: 20px 0;                  /* Add margin for spacing */
+}
+
+.footer-social h3 {
+    margin-right: 15px;              /* Space between heading and social links */
+    color: #ffd1a3;
+}
+
+.footer-social a {
+    margin: 0 10px;                  /* Margin between social links */
+}
+
+/* Footer bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    color: #ddd;
+    border-top: 1px solid #ffd1a3;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 20px 10px;
+    }
+    .footer-logo h2 {
+        font-size: 20px;
+    }
+    .footer-links ul li a, .footer-social a {
+        font-size: 14px;
+    }
+    .footer-bottom {
+        font-size: 12px;
+    }
+}
+
+/********************* recaptcha Design ******************************/
+
+.g-recaptcha {
+    
+    margin: 15px 0;
+    text-align: center;
+}
+
+
+
